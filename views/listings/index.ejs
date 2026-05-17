@@ -1,0 +1,183 @@
+
+<% layout("/layouts/boilerplate") -%>
+<style>
+  #filter{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    width: 100%;
+  
+  }
+  #filter::-webkit-scrollbar{
+  display:none;
+}
+  .filter{
+    margin-top:5px;
+    margin-bottom: 1px;
+  text-align:center;
+  margin-right:4rem;
+  margin-left: 2rem;
+  opacity:0.7;
+  flex-shrink:0;
+  
+  }
+  .filter a{
+  color: black;
+    text-decoration: none;}
+  .filter:hover{
+    opacity: 1.5;
+    cursor: pointer;
+  }
+  .filter-wrapper{
+    display: flex;
+    align-items: center;
+    position:relative;
+  }
+  .scroll-btn{
+  border:none;
+  background:white;
+  font-size:1.2rem;
+  padding:10px;
+  
+  cursor:pointer;
+  opacity: 0.7;
+ 
+}
+.scroll-btn:hover{
+  opacity: 1.5;
+}
+  @media (max-width:700px){
+  
+    .filter{
+      margin-right:1rem;
+      margin-left:0;
+   }
+
+   .filter-wrapper{
+      padding-top:5rem;
+      width:100%;
+   }
+
+   .scroll-btn{
+      display:none;
+   }
+
+   
+   #filter{
+   -webkit-overflow-scrolling:touch;
+}
+
+  }
+</style>
+
+<div class="filter-wrapper">
+<button  class="scroll-btn" id="leftbtn">
+  <i class="fa-solid fa-chevron-left"></i>
+</button>
+
+    <div id="filter">
+    <div class="filter">
+      <a href="#">
+      <div>
+<i class="fa-solid fa-bed"></i>
+      </div>
+      <p><b> Rooms</b></p>
+      </a>
+    </div>
+    <div class="filter">
+      <a href="#">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p><b> Mountains</b></p>
+    </a>
+    </div>
+    <div class="filter">
+    <a href="#">
+      <div><i class="fa-solid fa-city"></i></div>
+      <p><b> Iconic-cities</b></p>
+    </a>
+    </div>
+    <div class="filter">
+    <a href="#">
+      <div> <i class="fa-brands fa-fort-awesome"></i></div>
+      <p><b> castles</b></p>
+    </a>
+    </div>
+    <div class="filter">
+    <a href="#">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p><b> Camping</b></p>
+    </a>
+    </div>
+    <div class="filter">
+    <a href="#">
+      <div> <i class="fa-solid fa-horse"></i></div>
+      <p><b> Farms</b></p>
+    </a>
+    </div>
+    <div class="filter">
+    <a href="#">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p><b> pools</b></p>
+    </a>
+    </div>
+    <div class="filter">
+    <a href="#">
+      <div> <i class="fa-solid fa-snowflake"></i></div>
+      <p><b> Arctic</b></p>
+    </a>
+    </div>
+  </div>
+  <button class="scroll-btn" id="rightbtn">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+    </div>
+    <!-- //////// -->
+    <script>
+
+      const filter = document.getElementById("filter");
+      
+      document.getElementById("rightbtn").addEventListener("click", ()=>{
+      
+          filter.scrollBy({
+              left:300,
+              behavior:"smooth"
+          });
+      
+      });
+      
+      document.getElementById("leftbtn").addEventListener("click", ()=>{
+      
+          filter.scrollBy({
+              left:-300,
+              behavior:"smooth"
+          });
+      
+      });
+      
+      </script>
+    <!-- //////// -->
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <%for(listings of allListings){%>
+      <a href="/listings/<%=listings.id%>" class="listing-link" >
+      <div class="card crad-listing card-img" style="width: 20rem;">
+        <img src="<%=listings.image.url%>" class="card-img-top" alt="listings_image"  style="height:20rem;">
+        <div class="card-img-overlay"><i class="fa-regular fa-clock"></i></div>
+        <div class="card-body">
+          <p class="card-text">
+          <b> <%=listings.title%></b>
+            <br>
+            &#8377;<%=Number(listings.price).toLocaleString("en-IN")%>/night<br>
+          </p>
+        
+      </div>
+    </div>
+  </a>
+    <%}%>
+    </div>
+    
+      
+  
+
+

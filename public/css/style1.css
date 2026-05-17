@@ -1,0 +1,116 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex:1;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.navbar-brand i{
+   font-size: 25px;
+   color: rgb(145, 107, 84);
+}
+.navbar-nav a{
+    color: rgb(5, 4, 4);
+}
+.footer{
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    align-items: space-evenly;
+    flex-wrap: wrap;
+    height: 6rem;
+    background-color: rgb(205, 183, 169);
+}
+.social,.terms,.start{
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+}
+.social i{
+    font-size:20px;
+    margin-right:5px;
+}
+.terms a{
+    margin-right:5px;
+    text-decoration: none;
+}
+.terms :hover {
+text-decoration:underline;
+}
+.card-img{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 17px !important;
+    width: 100% !important;
+    object-fit: cover!important;
+}
+.card-body{
+    padding: 0 !important ;
+    font-weight: 20px !important;
+}
+.listing-link{
+    text-decoration: none;
+}
+.card-img-overlay{
+    color: rgb(145, 107, 84);
+    font-size: 25px;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: absolute !important;
+    opacity:0;
+}
+.card-img-overlay:hover{
+    opacity:1.5;
+    left: -2px !important;
+    top: -6px !important;
+    transition-duration: 0.7s;  
+    
+}
+.card-img:hover{
+    width: 340px!important;
+    transition-duration: 0.5s;  
+    transition: 1.4s;
+}
+.btn{
+    background-color:rgb(145, 107, 84) !important;
+}
+.card-listing{
+   border: none !important;
+}
+.btns{
+    display: flex;
+}
+
+.success{
+    background-color: rgb(145, 107, 84) !important;
+    opacity:0.8;
+    color: white!important;
+    
+}
+.innerimage img{
+    width:200px;
+    height:200px;
+}
+#map { 
+    height:400px;
+    width: 400px;
+}
+#wlust{
+    color: rgb(145, 107, 84);
+   font-size: 18px;
+    
+}
+.show-img:hover{
+    width: 700px !important;
+    height: 400px !important;
+    transition-duration: 0.5s !important;
+}
