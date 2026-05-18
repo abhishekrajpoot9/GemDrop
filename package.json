@@ -1,4 +1,7 @@
 {
+  "engine":{
+"node":"v24.7.0"
+  },
   "name": "majorproject",
   "version": "1.0.0",
   "description": "",
@@ -11,8 +14,9 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "cloudinary": "^1.30.0",
+    "cloudinary": "^2.10.0",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
@@ -23,7 +27,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^8.18.1",
     "motion": "^12.23.22",
-    "multer": "^1.4.4",
+    "multer": "^2.1.1",
     "multer-storage-cloudinary": "^4.0.0",
     "node": "^24.8.0",
     "passport": "^0.7.0",

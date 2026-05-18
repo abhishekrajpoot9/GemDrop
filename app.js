@@ -13,11 +13,13 @@ const reviewrouter=require("./routes/reviews.js")
 const user1router=require("./routes/user1.js")
 const  cookieParser = require('cookie-parser');
 const session = require('express-session');
+const MongoStore = require('connect-mongo').default;
 const flash = require('connect-flash');
 const methodOverride=require("method-override");
 const User=require("./routes/user.js")
 const LocalStrategy=require("passport-local");
 const passport=require("passport");
+const { url } = require("inspector");
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -26,18 +28,31 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
 app.engine('ejs',ejsmate);
 app.use(cookieParser())
-app.use(flash());
+
+const dbUrl=process.env.ATLASDB_URL;
+const store =  MongoStore.create({
+    mongoUrl:dbUrl,
+    crypto:{
+         secret:"abhi123321"
+    },
+    touchAfter:24*3600,
+});
+store.on("error",(err)=>{
+    console.log("error occuring in session store",err)
+});
 const sessionOptions={
+    store,
     secret:"abhi123321",
     resave: false,
     saveUninitialized:true,
     cookie:{
-        expires:Date.now+7*24*60*60*1000,
+        expires: new Date(Date.now() + 7*24*60*60*1000),
         maxAge:7*24*60*60*1000,
         httpOnly:true,
     },
 }
 app.use(session(sessionOptions));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -52,8 +67,9 @@ app.use((req,res,next)=>{
 app.listen(8080,()=>{
     console.log("port is listing on port 8080")
 })
+
   async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+    await mongoose.connect(dbUrl);
     }
     main()
     .then((res)=>{
