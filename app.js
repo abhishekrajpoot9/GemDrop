@@ -77,7 +77,7 @@ app.listen(8080,()=>{
         console.log ("connected")
     });
     app.get("/",(req,res)=>{
-res.send("success")
+res.redirect("/listings")
 })
 
 app.use("/listings",listingrouter);
