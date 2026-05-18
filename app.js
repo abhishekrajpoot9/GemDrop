@@ -20,6 +20,7 @@ const User=require("./routes/user.js")
 const LocalStrategy=require("passport-local");
 const passport=require("passport");
 const { url } = require("inspector");
+const { env } = require("process");
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -33,7 +34,7 @@ const dbUrl=process.env.ATLASDB_URL;
 const store =  MongoStore.create({
     mongoUrl:dbUrl,
     crypto:{
-         secret:"abhi123321"
+         secret:process.env.SECRET
     },
     touchAfter:24*3600,
 });
@@ -42,7 +43,7 @@ store.on("error",(err)=>{
 });
 const sessionOptions={
     store,
-    secret:"abhi123321",
+    secret:process.env.SECRET,
     resave: false,
     saveUninitialized:true,
     cookie:{
