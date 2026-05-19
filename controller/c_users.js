@@ -11,7 +11,7 @@ module.exports.signUpredirect=async(req,res,next)=>{
     if(error){
       return next(error);
     }
-    req.flash("success","welcome to the_UnseenMap")
+    req.flash("success","welcome to DropGem")
     res.redirect("/listings")
    })
  }
@@ -24,7 +24,7 @@ module.exports.login=(req,res)=>{
     res.render("users/login.ejs")
   };
   module.exports.loginredirect=async(req,res)=>{
-    req.flash("success","welcome back on the_UnseenMap")
+    req.flash("success","welcome back on DropGem")
   res.redirect(res.locals.redirectUrl||"/listings")
   }
   module.exports.logout=(req,res,next)=>{
