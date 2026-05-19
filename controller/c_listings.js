@@ -85,6 +85,13 @@ module.exports.savelisting = async (req, res) => {
 
   }
 };
+module.exports.category=async(req,res)=>{
+let {name}=req.params;
+const category=await Listings.find({category:name})
+res.render("listings/category.ejs",{category})
+//////
+//////
+}
     module.exports.edit=async(req,res)=>{
         let {id}=req.params;
         const listing=await Listings.findById(id)

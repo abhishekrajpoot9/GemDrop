@@ -18,9 +18,9 @@ router.route("/")
   upload.single('listing[image]'),
  listingvalidate,
  wrapAsync (c_listings.savelisting));
-
-  
-
+//
+router.get("/:name/Category",wrapAsync(c_listings.category)) ; 
+//
 router.get("/new",isloggedin,c_listings.createlisting);
 router.get("/:id/edit",isloggedin,isowner,wrapAsync(c_listings.edit));
 
