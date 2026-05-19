@@ -30,7 +30,7 @@ latitude: Number,
 longitude: Number,
 category:{
     type:String,
-    enum:["mountains","rooms","castles","pools","camping","farms","iconic-cities","arctic","river"],
+    enum:["Mountains","Rooms","Castles","Pools","Camping","Farms","Arctic","River"],
     required:true,
 },
 })

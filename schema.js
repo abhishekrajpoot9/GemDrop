@@ -4,15 +4,15 @@ module.exports.listingsSchema=joi.object({
     title:joi.string().required(),
     category: joi.string()
             .valid(
-                "mountains",
-                "rooms",
-                "castles",
-                "pools",
-                "camping",
-                "farms",
-                "iconic-cities",
-                "arctic",
-                "river"
+                "Mountains",
+                "Rooms",
+                "Castles",
+                "Pools",
+                "Camping",
+                "Farms",
+          
+                "Arctic",
+                "River"
             )
             .required(),
   description:joi.string().required(),
